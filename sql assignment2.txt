@@ -1,0 +1,69 @@
+-----customer table------
+create table Customer
+(
+Id int primary key,
+FirstName nvarchar(40),
+LastName nvarchar(40),
+City nvarchar(40),
+Country nvarchar(40),
+Phone nvarchar(20),
+Faxnumber int,
+);
+select * from Customer;
+insert into Customer values(1,'vidya','mattaparthi','amalapuram','India',123456789,101);
+insert into Customer values(2,'kriti','shetty','victoria','Australia',234567891,102);
+insert into Customer values(3,'mahi','kadali','quebec','Canada',134567892,103);
+insert into Customer values(4,'aina','akula','nara','Japan',345678912,104);
+insert into Customer values(5,'kutty','mane','berlin','Germany',456789123,105);
+insert into Customer values(6,'harshi','nargana','kakinada','India',0300074321,106);
+
+
+
+alter table Customer add Faxnumber int;
+-----assignment 2----
+select * from Customer where Country='Germany';
+select FirstName,LastName from Customer;
+select Faxnumber from Customer;
+select * from Customer where FirstName like '_u%';
+create table Cust(Custname nvarchar(20),Cuscountry nvarchar(20),CusFax nvarchar(20),Prodname nvarchar(20),ProdSupply nvarchar(20),ProdQty int,prodPrice int);
+select * from Cust;
+insert into Cust values('vidyamattaparthi','India',101,'abc','Exotic Liquids',100,50000);
+insert into Cust values('kritishetty','Australia',102,'bcd','power host',20,60000);
+insert into Cust values('mahikadali','Canada',103,'cde','digiol',80,70000);
+insert into Cust values('ainaakula','Japan',104,'def','electric cool',100,80000);
+alter table Cust add Managername nvarchar(20);
+alter table Cust add orderdate datetime;
+update Cust set orderdate='2002-01-01 11:23:45' where Custname='vidyamattaparthi';
+update Cust set orderdate='2008-01-01 01:13:42' where Custname='kritishetty';
+update Cust set orderdate='2010-09-13 07:23:45' where Custname='mahikadali';
+update Cust set orderdate='2022-10-22 09:13:52' where Custname='ainaakula';
+select * from Cust where orderdate>'2002-01-01 11:23:45' order by orderdate;
+
+update Cust set Managername='pqr' where Custname='vidyamattaparthi';
+update Cust set Managername='qrs' where Custname='kritishetty';
+update Cust set Managername='rst' where Custname='mahikadali';
+update Cust set Managername='stu' where Custname='ainaakula';
+select * from Cust;
+update Cust set ProdQty='3' where Custname='vidyamattaparthi';
+update Cust set ProdQty='9' where Custname='kritishetty';
+select * from Cust where prodPrice>=10 order by prodPrice;
+select * from Cust where ProdSupply='Exotic Liquids';
+select Custname,Managername from Cust; 
+alter table Cust add Companyname nvarchar(20);
+update Cust set Companyname='Tech' where Custname='vidyamattaparthi';
+update Cust set Companyname='bb' where Custname='kritishetty';
+update Cust set Companyname='agro' where Custname='mahikadali';
+update Cust set Companyname='aa' where Custname='ainaakula';
+alter table Cust add orderid int;
+update Cust set orderid=11 where Custname='vidyamattaparthi';
+update Cust set orderid=12 where Custname='kritishetty';
+update Cust set orderid=13 where Custname='mahikadali';
+update Cust set orderid=14 where Custname='ainaakula';
+select Companyname,Custname from Cust;
+select Prodname,prodPrice from Cust where orderid='12';
+select prodPrice,Companyname from Cust where ProdSupply='Exotic Liquids';
+
+
+
+
+
