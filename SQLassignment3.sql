@@ -1,0 +1,38 @@
+create table custdetails(cname nvarchar(20),cphno nvarchar(10));
+insert into custdetails values('vidyamattaparthi',123456789);
+insert into custdetails values('pinky',00300074321);
+insert into custdetails values('ponky',2345678);
+
+
+
+select * from custdetails;
+alter table custdetails add category nvarchar(20);
+update custdetails set category='seafood' where cname='vidyamattaparthi';
+update custdetails set category='fastfood' where cname='pinky';
+update custdetails set category='liquids' where cname='ponky';
+alter table custdetails add country nvarchar(20);
+update custdetails set country='India' where cname='vidyamattaparthi';
+update custdetails set country='Canada' where cname='pinky';
+update custdetails set country='Australia' where cname='ponky';
+alter table custdetails add cporder nvarchar(20);
+update custdetails set cporder='fish' where cname='vidyamattaparthi';
+update custdetails set cporder='Samosa' where cname='pinky';
+update custdetails set cporder='chai' where cname='ponky';
+alter table custdetails add ratings int;
+update custdetails set ratings=90 where cname='vidyamattaparthi';
+update custdetails set ratings=50 where cname='pinky';
+update custdetails set ratings=95 where cname='ponky';
+alter table custdetails add categorysub nvarchar(20);
+update custdetails set categorysub='fish,prawns,crab' where cname='vidyamattaparthi';
+update custdetails set categorysub='Samosa,noodles,chat' where cname='pinky';
+update custdetails set categorysub='chai,coffee' where cname='ponky';
+
+alter table custdetails add depname nvarchar(20);
+update custdetails set depname='cce' where cname='vidyamattaparthi';
+update custdetails set depname='bce' where cname='pinky';
+update custdetails set depname='dde' where cname='ponky';
+select cporder from custdetails where cphno=0300074321;
+select categorysub from custdetails where category='seafood';
+select cname,cporder from custdetails where country='Canada';
+select cporder from custdetails where cporder='chai';
+select cname,depname,ratings from custdetails;
